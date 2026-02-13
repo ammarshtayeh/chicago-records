@@ -24,7 +24,9 @@ export default function SettingsPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-white">Settings</h1>
+      <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+        Settings
+      </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Studio Information */}
@@ -33,21 +35,21 @@ export default function SettingsPage() {
             <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#ffd700] to-[#d4af37] flex items-center justify-center mr-3">
               <Building2 className="w-6 h-6 text-black" />
             </div>
-            <h2 className="text-2xl font-bold text-white">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
               Studio Information
             </h2>
           </div>
 
           <div className="space-y-4">
             <div>
-              <label className="block text-gray-400 mb-2 text-sm">
+              <label className="block text-slate-600 dark:text-gray-400 mb-2 text-sm">
                 Studio Name
               </label>
               <div className="relative">
-                <User className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <User className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-gray-400 w-5 h-5" />
                 <input
                   type="text"
-                  className="w-full pl-4 pr-10 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#ffd700] transition-colors"
+                  className="w-full pl-4 pr-10 py-3 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-[#ffd700] transition-colors"
                   value={settings.studioName}
                   onChange={(e) =>
                     setSettings({ ...settings, studioName: e.target.value })
@@ -57,12 +59,14 @@ export default function SettingsPage() {
             </div>
 
             <div>
-              <label className="block text-gray-400 mb-2 text-sm">Email</label>
+              <label className="block text-slate-600 dark:text-gray-400 mb-2 text-sm">
+                Email
+              </label>
               <div className="relative">
-                <Mail className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Mail className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-gray-400 w-5 h-5" />
                 <input
                   type="email"
-                  className="w-full pl-4 pr-10 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#ffd700] transition-colors"
+                  className="w-full pl-4 pr-10 py-3 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-[#ffd700] transition-colors"
                   value={settings.email}
                   onChange={(e) =>
                     setSettings({ ...settings, email: e.target.value })
@@ -72,10 +76,12 @@ export default function SettingsPage() {
             </div>
 
             <div>
-              <label className="block text-gray-400 mb-2 text-sm">Phone</label>
+              <label className="block text-slate-600 dark:text-gray-400 mb-2 text-sm">
+                Phone
+              </label>
               <input
                 type="tel"
-                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#ffd700] transition-colors"
+                className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-[#ffd700] transition-colors"
                 value={settings.phone}
                 onChange={(e) =>
                   setSettings({ ...settings, phone: e.target.value })
@@ -84,12 +90,12 @@ export default function SettingsPage() {
             </div>
 
             <div>
-              <label className="block text-gray-400 mb-2 text-sm">
+              <label className="block text-slate-600 dark:text-gray-400 mb-2 text-sm">
                 Address
               </label>
               <textarea
                 rows={3}
-                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#ffd700] transition-colors resize-none"
+                className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-[#ffd700] transition-colors resize-none"
                 value={settings.address}
                 onChange={(e) =>
                   setSettings({ ...settings, address: e.target.value })
@@ -98,14 +104,14 @@ export default function SettingsPage() {
             </div>
 
             <div>
-              <label className="block text-gray-400 mb-2 text-sm">
+              <label className="block text-slate-600 dark:text-gray-400 mb-2 text-sm">
                 Website
               </label>
               <div className="relative">
-                <Globe className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Globe className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-gray-400 w-5 h-5" />
                 <input
                   type="url"
-                  className="w-full pl-4 pr-10 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#ffd700] transition-colors"
+                  className="w-full pl-4 pr-10 py-3 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-[#ffd700] transition-colors"
                   value={settings.website}
                   onChange={(e) =>
                     setSettings({ ...settings, website: e.target.value })
@@ -123,16 +129,18 @@ export default function SettingsPage() {
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mr-3">
                 <Bell className="w-6 h-6 text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-white">Notifications</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                Notifications
+              </h2>
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 rounded-lg bg-white/5">
+              <div className="flex items-center justify-between p-4 rounded-lg bg-slate-50 dark:bg-white/5">
                 <div>
-                  <h3 className="text-white font-medium mb-1">
+                  <h3 className="text-slate-900 dark:text-white font-medium mb-1">
                     Push Notifications
                   </h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-slate-500 dark:text-gray-400">
                     Receive push notifications for new bookings
                   </p>
                 </div>
@@ -148,16 +156,16 @@ export default function SettingsPage() {
                       })
                     }
                   />
-                  <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#ffd700]"></div>
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#ffd700]"></div>
                 </label>
               </div>
 
-              <div className="flex items-center justify-between p-4 rounded-lg bg-white/5">
+              <div className="flex items-center justify-between p-4 rounded-lg bg-slate-50 dark:bg-white/5">
                 <div>
-                  <h3 className="text-white font-medium mb-1">
+                  <h3 className="text-slate-900 dark:text-white font-medium mb-1">
                     Email Notifications
                   </h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-slate-500 dark:text-gray-400">
                     Receive email updates for bookings
                   </p>
                 </div>
@@ -173,16 +181,16 @@ export default function SettingsPage() {
                       })
                     }
                   />
-                  <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#ffd700]"></div>
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#ffd700]"></div>
                 </label>
               </div>
 
-              <div className="flex items-center justify-between p-4 rounded-lg bg-white/5">
+              <div className="flex items-center justify-between p-4 rounded-lg bg-slate-50 dark:bg-white/5">
                 <div>
-                  <h3 className="text-white font-medium mb-1">
+                  <h3 className="text-slate-900 dark:text-white font-medium mb-1">
                     Booking Confirmations
                   </h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-slate-500 dark:text-gray-400">
                     Auto-send confirmation emails
                   </p>
                 </div>
@@ -198,7 +206,7 @@ export default function SettingsPage() {
                       })
                     }
                   />
-                  <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#ffd700]"></div>
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#ffd700]"></div>
                 </label>
               </div>
             </div>
@@ -210,7 +218,9 @@ export default function SettingsPage() {
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center mr-3">
                 <Lock className="w-6 h-6 text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-white">Security</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                Security
+              </h2>
             </div>
 
             <div className="space-y-3">

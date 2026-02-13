@@ -80,7 +80,7 @@ export default function BookingsPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h1 className="text-3xl font-bold text-white">Bookings Management</h1>
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Bookings Management</h1>
         <Button variant="primary">New Booking</Button>
       </div>
 
@@ -88,19 +88,19 @@ export default function BookingsPage() {
       <Card>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="Search clients or services..."
-              className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all"
+              className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           <div className="relative min-w-[200px]">
-            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-gray-400 w-5 h-5" />
             <select
-              className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all appearance-none cursor-pointer"
+              className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all appearance-none cursor-pointer"
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
             >
@@ -127,10 +127,10 @@ export default function BookingsPage() {
                 <div className="flex-1 space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-1">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
                         {booking.client}
                       </h3>
-                      <p className="text-yellow-500 font-medium">
+                      <p className="text-yellow-600 dark:text-yellow-500 font-medium">
                         {booking.service}
                       </p>
                     </div>
@@ -147,29 +147,31 @@ export default function BookingsPage() {
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-8 text-sm text-gray-400">
-                    <div className="flex items-center hover:text-white transition-colors">
-                      <Mail className="w-4 h-4 mr-2 text-gray-500" />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-8 text-sm text-slate-500 dark:text-gray-400">
+                    <div className="flex items-center hover:text-slate-900 dark:hover:text-white transition-colors">
+                      <Mail className="w-4 h-4 mr-2 text-slate-400 dark:text-gray-500" />
                       {booking.email}
                     </div>
-                    <div className="flex items-center hover:text-white transition-colors">
-                      <Phone className="w-4 h-4 mr-2 text-gray-500" />
+                    <div className="flex items-center hover:text-slate-900 dark:hover:text-white transition-colors">
+                      <Phone className="w-4 h-4 mr-2 text-slate-400 dark:text-gray-500" />
                       {booking.phone}
                     </div>
-                    <div className="flex items-center hover:text-white transition-colors">
-                      <Calendar className="w-4 h-4 mr-2 text-gray-500" />
+                    <div className="flex items-center hover:text-slate-900 dark:hover:text-white transition-colors">
+                      <Calendar className="w-4 h-4 mr-2 text-slate-400 dark:text-gray-500" />
                       {booking.date}
                     </div>
-                    <div className="flex items-center hover:text-white transition-colors">
-                      <Clock className="w-4 h-4 mr-2 text-gray-500" />
+                    <div className="flex items-center hover:text-slate-900 dark:hover:text-white transition-colors">
+                      <Clock className="w-4 h-4 mr-2 text-slate-400 dark:text-gray-500" />
                       {booking.time}
                     </div>
                   </div>
 
                   {booking.notes && (
-                    <div className="bg-white/5 p-3 rounded-lg border border-white/5">
-                      <p className="text-sm text-gray-400 italic">
-                        <span className="font-semibold text-gray-300 not-italic">
+                    <div className="bg-slate-100 dark:bg-white/5 p-3 rounded-lg border border-slate-200 dark:border-white/5">
+                      <p className="text-sm text-slate-600 dark:text-gray-400 italic">
+                        <span className="font-semibold text-slate-700 dark:text-gray-300 not-italic">
                           Note:{" "}
                         </span>
                         {booking.notes}
@@ -201,14 +203,14 @@ export default function BookingsPage() {
       </div>
 
       {filteredBookings.length === 0 && (
-        <Card className="text-center py-16 border-dashed border-white/10">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/5 mb-4">
-            <Search className="w-8 h-8 text-gray-500" />
+        <Card className="text-center py-16 border-dashed border-slate-200 dark:border-white/10">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-white/5 mb-4">
+            <Search className="w-8 h-8 text-slate-400 dark:text-gray-500" />
           </div>
-          <h3 className="text-xl font-bold text-white mb-2">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
             No bookings found
           </h3>
-          <p className="text-gray-400">Try adjusting your search criteria</p>
+          <p className="text-slate-500 dark:text-gray-400">Try adjusting your search criteria</p>
         </Card>
       )}
     </div>

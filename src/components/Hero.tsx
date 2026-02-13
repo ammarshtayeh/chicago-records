@@ -3,17 +3,18 @@
 import { motion } from "framer-motion";
 import { Sparkles, Zap, TrendingUp, Award, Camera } from "lucide-react";
 import Button from "./ui/Button";
+import AnimatedCamera from "./ui/AnimatedCamera";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-black via-gray-900 to-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-black dark:via-gray-900 dark:to-black">
       {/* Animated Waveform Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="flex items-end justify-center h-full gap-1 px-4">
-          {Array.from({ length: 80 }).map((_, i) => (
+          {Array.from({ length: 40 }).map((_, i) => (
             <motion.div
               key={i}
-              className="w-1 sm:w-1.5 rounded-t-full"
+              className="w-2 sm:w-2.5 rounded-t-full" // Increased width to compensate for fewer bars
               style={{
                 background: `linear-gradient(to top, ${
                   i % 3 === 0 ? "#FFD700" : i % 3 === 1 ? "#00F5FF" : "#B026FF"
@@ -35,6 +36,26 @@ export default function Hero() {
             />
           ))}
         </div>
+      </div>
+
+      {/* Floating Camera Animation - Main */}
+      <div className="absolute top-20 right-5 md:right-20 lg:right-40 opacity-80 pointer-events-none z-0 hidden sm:block">
+        <AnimatedCamera className="w-96 h-96" />
+      </div>
+
+      {/* Floating Camera Animation - Secondary Left */}
+      <div className="absolute bottom-40 left-10 opacity-40 pointer-events-none z-0 hidden lg:block">
+        <AnimatedCamera className="w-64 h-64 rotate-12 blur-[1px]" />
+      </div>
+
+      {/* Floating Camera Animation - Small Top Left */}
+      <div className="absolute top-40 left-40 opacity-30 pointer-events-none z-0 hidden xl:block">
+        <AnimatedCamera className="w-40 h-40 -rotate-12 blur-[2px]" />
+      </div>
+
+      {/* Floating Camera Animation - Small Bottom Right */}
+      <div className="absolute bottom-20 right-1/4 opacity-20 pointer-events-none z-0 hidden md:block">
+        <AnimatedCamera className="w-48 h-48 rotate-45 blur-[3px]" />
       </div>
 
       {/* Floating Orbs */}
@@ -85,7 +106,7 @@ export default function Hero() {
               <span className="block mb-2 text-5xl sm:text-6xl md:text-7xl bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,215,0,0.6)]">
                 استوديو شيكاغو
               </span>
-              <span className="text-white block text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-wide">
+              <span className="text-slate-900 dark:text-white block text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-wide">
                 للتصوير الفوتوغرافي
               </span>
             </h1>
@@ -99,7 +120,7 @@ export default function Hero() {
             className="mb-8"
           >
             <div className="inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-500 to-yellow-500 shadow-xl shadow-orange-500/30">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black tracking-wide">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white dark:text-black tracking-wide">
                 تصوير جميع مناسباتك
               </h2>
             </div>
@@ -110,7 +131,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl sm:text-2xl md:text-3xl text-gray-200 mb-4 font-bold"
+            className="text-xl sm:text-2xl md:text-3xl text-slate-700 dark:text-gray-200 mb-4 font-bold"
           >
             تصوير فوتوغرافي عالي المستوى
           </motion.p>
@@ -119,7 +140,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg sm:text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-light"
+            className="text-lg sm:text-xl text-slate-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto font-light"
           >
             نلتقط أجمل اللحظات بأحدث المعدات والتقنيات العالمية
           </motion.p>
@@ -142,7 +163,7 @@ export default function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="text-lg px-10 py-4 font-bold tracking-wide group hover:bg-white/5"
+              className="text-lg px-10 py-4 font-bold tracking-wide group hover:bg-slate-100 dark:hover:bg-white/5 text-slate-900 dark:text-white border-slate-200 dark:border-white/20"
             >
               <Sparkles className="w-6 h-6 ml-2 group-hover:rotate-12 transition-transform" />
               أعمالنا
@@ -154,7 +175,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto border-t border-white/10 pt-10"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto border-t border-slate-200 dark:border-white/10 pt-10"
           >
             {[
               {
@@ -200,7 +221,7 @@ export default function Hero() {
                   >
                     {stat.number}
                   </div>
-                  <div className="text-gray-400 text-sm sm:text-base font-medium">
+                  <div className="text-slate-500 dark:text-gray-400 text-sm sm:text-base font-medium">
                     {stat.label}
                   </div>
                 </div>

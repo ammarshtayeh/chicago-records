@@ -57,7 +57,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 sm:py-32 relative overflow-hidden bg-black"
+      className="py-24 sm:py-32 relative overflow-hidden bg-slate-50 dark:bg-black"
     >
       {/* Background Effects */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-yellow-500/05 rounded-full blur-3xl" />
@@ -80,7 +80,7 @@ export default function Contact() {
           </div>
 
           <h2 className="font-black mb-6">
-            <span className="block text-white text-4xl sm:text-5xl md:text-6xl mb-2">
+            <span className="block text-slate-900 dark:text-white text-4xl sm:text-5xl md:text-6xl mb-2">
               احجز جلسة التصوير
             </span>
             <span className="block text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,215,0,0.5)]">
@@ -88,7 +88,7 @@ export default function Contact() {
             </span>
           </h2>
 
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
             نحن هنا لالتقاط أجمل لحظاتك
           </p>
         </motion.div>
@@ -110,7 +110,7 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="p-5 rounded-2xl bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-xl border border-yellow-500/10 hover:border-yellow-500/30 shadow-lg transition-all duration-300 group"
+                className="p-5 rounded-2xl bg-white dark:bg-gradient-to-br dark:from-gray-900/90 dark:to-black/95 backdrop-blur-xl border border-slate-200 dark:border-yellow-500/10 hover:border-yellow-500/30 shadow-lg transition-all duration-300 group"
               >
                 <div className="flex items-start gap-4">
                   <motion.div
@@ -121,10 +121,10 @@ export default function Contact() {
                     <info.icon className="w-6 h-6 text-white" />
                   </motion.div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-white mb-1 group-hover:text-yellow-500 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-yellow-500 transition-colors">
                       {info.title}
                     </h3>
-                    <p className="text-gray-400 text-base leading-relaxed">
+                    <p className="text-slate-600 dark:text-gray-400 text-base leading-relaxed">
                       {info.value}
                     </p>
                   </div>
@@ -138,13 +138,15 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-orange-500/5 border border-yellow-500/20 backdrop-blur-xl mt-6"
+              className="p-6 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-orange-500/5 border border-yellow-500/20 backdrop-blur-xl mt-6 bg-white dark:bg-transparent"
             >
               <div className="flex items-center gap-3 mb-3">
                 <Camera className="w-5 h-5 text-yellow-500" />
-                <h3 className="text-xl font-bold text-white">استشارة مجانية</h3>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                  استشارة مجانية
+                </h3>
               </div>
-              <p className="text-gray-300 text-base leading-relaxed mb-5">
+              <p className="text-slate-600 dark:text-gray-300 text-base leading-relaxed mb-5">
                 احصل على استشارة مجانية لجلسة التصوير واكتشف كيف يمكننا التقاط
                 أجمل لحظاتك
               </p>
@@ -165,17 +167,17 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="p-8 rounded-3xl bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-xl border border-yellow-500/10 shadow-2xl"
+            className="p-8 rounded-3xl bg-white dark:bg-gradient-to-br dark:from-gray-900/90 dark:to-black/95 backdrop-blur-xl border border-slate-200 dark:border-yellow-500/10 shadow-2xl"
           >
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-white font-semibold mb-2 text-base">
+                <label className="block text-slate-700 dark:text-white font-semibold mb-2 text-base">
                   الاسم الكامل
                 </label>
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/20 transition-all text-base"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/20 transition-all text-base"
                   placeholder="أدخل اسمك"
                   value={formData.name}
                   onChange={(e) =>
@@ -185,13 +187,13 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2 text-base">
+                <label className="block text-slate-700 dark:text-white font-semibold mb-2 text-base">
                   البريد الإلكتروني
                 </label>
                 <input
                   type="email"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/20 transition-all text-base"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/20 transition-all text-base"
                   placeholder="example@email.com"
                   value={formData.email}
                   onChange={(e) =>
@@ -201,13 +203,13 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2 text-base">
+                <label className="block text-slate-700 dark:text-white font-semibold mb-2 text-base">
                   رقم الهاتف
                 </label>
                 <input
                   type="tel"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/20 transition-all text-base"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/20 transition-all text-base"
                   placeholder="+1 (555) 123-4567"
                   value={formData.phone}
                   onChange={(e) =>
@@ -217,13 +219,13 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2 text-base">
+                <label className="block text-slate-700 dark:text-white font-semibold mb-2 text-base">
                   رسالتك
                 </label>
                 <textarea
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/20 transition-all resize-none text-base"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/20 transition-all resize-none text-base"
                   placeholder="أخبرنا عن المناسبة ونوع التصوير المطلوب..."
                   value={formData.message}
                   onChange={(e) =>

@@ -51,7 +51,7 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="py-24 sm:py-32 relative overflow-hidden bg-black"
+      className="py-24 sm:py-32 relative overflow-hidden bg-slate-50 dark:bg-black"
     >
       {/* Background Effects */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-yellow-500/05 rounded-full blur-3xl" />
@@ -74,7 +74,7 @@ export default function Pricing() {
           </div>
 
           <h2 className="font-black mb-6">
-            <span className="block text-white text-4xl sm:text-5xl md:text-6xl mb-2">
+            <span className="block text-slate-900 dark:text-white text-4xl sm:text-5xl md:text-6xl mb-2">
               اختر الباقة
             </span>
             <span className="block text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,215,0,0.5)]">
@@ -82,7 +82,7 @@ export default function Pricing() {
             </span>
           </h2>
 
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
             باقات تصوير مرنة تناسب جميع المناسبات والميزانيات
           </p>
         </motion.div>
@@ -99,10 +99,10 @@ export default function Pricing() {
               className={`${pkg.popular ? "md:col-span-2 lg:col-span-1 lg:scale-105 lg:z-10" : ""}`}
             >
               <div
-                className={`h-full rounded-3xl bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-xl border shadow-xl transition-all duration-300 overflow-hidden flex flex-col ${
+                className={`h-full rounded-3xl bg-white dark:bg-gradient-to-br dark:from-gray-900/90 dark:to-black/95 backdrop-blur-xl border shadow-xl transition-all duration-300 overflow-hidden flex flex-col ${
                   pkg.popular
                     ? "border-2 border-yellow-500 shadow-yellow-500/20"
-                    : "border border-yellow-500/20 hover:border-yellow-500/40"
+                    : "border-slate-200 dark:border-yellow-500/20 hover:border-yellow-500/40"
                 }`}
               >
                 {/* Popular Badge */}
@@ -118,12 +118,12 @@ export default function Pricing() {
                   className={`p-8 flex-1 flex flex-col ${pkg.popular ? "" : "pt-8"}`}
                 >
                   {/* Package Name */}
-                  <h3 className="text-2xl font-black text-white mb-2">
+                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">
                     {pkg.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 mb-6 text-sm">
+                  <p className="text-slate-600 dark:text-gray-400 mb-6 text-sm">
                     {pkg.description}
                   </p>
 
@@ -134,7 +134,7 @@ export default function Pricing() {
                         className={`text-4xl sm:text-5xl font-black ${
                           pkg.popular
                             ? "bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent"
-                            : "text-white"
+                            : "text-slate-900 dark:text-white"
                         }`}
                       >
                         {pkg.price}
@@ -157,7 +157,7 @@ export default function Pricing() {
                             strokeWidth={3}
                           />
                         </div>
-                        <span className="text-gray-300 text-base">
+                        <span className="text-slate-700 dark:text-gray-300 text-base">
                           {feature}
                         </span>
                       </li>

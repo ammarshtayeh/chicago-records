@@ -82,7 +82,9 @@ export default function PortfolioPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h1 className="text-3xl font-bold text-white">Portfolio Management</h1>
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+          Portfolio Management
+        </h1>
         <Button variant="primary">
           <Plus className="w-5 h-5 ml-2" />
           Add New Item
@@ -93,19 +95,19 @@ export default function PortfolioPage() {
       <Card>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="Search portfolio items..."
-              className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all"
+              className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           <div className="relative min-w-[200px]">
-            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-gray-400 w-5 h-5" />
             <select
-              className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all appearance-none cursor-pointer"
+              className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all appearance-none cursor-pointer"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
@@ -129,10 +131,10 @@ export default function PortfolioPage() {
             transition={{ delay: index * 0.05 }}
           >
             <Card className="h-full group hover:border-yellow-500/30 transition-all duration-300">
-              <div className="aspect-[4/3] bg-gray-800 rounded-xl mb-4 relative overflow-hidden">
+              <div className="aspect-[4/3] bg-slate-200 dark:bg-gray-800 rounded-xl mb-4 relative overflow-hidden">
                 {/* Placeholder for actual image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                  <ImageIcon className="w-12 h-12 text-gray-600" />
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                  <ImageIcon className="w-12 h-12 text-slate-400 dark:text-gray-600" />
                 </div>
 
                 <div className="absolute top-3 right-3">
@@ -150,19 +152,23 @@ export default function PortfolioPage() {
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-1 group-hover:text-yellow-500 transition-colors line-clamp-1">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-yellow-500 transition-colors line-clamp-1">
                 {item.title}
               </h3>
 
-              <p className="text-gray-400 text-sm mb-4">{item.category}</p>
+              <p className="text-slate-500 dark:text-gray-400 text-sm mb-4">
+                {item.category}
+              </p>
 
-              <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                <span className="text-xs text-gray-500">{item.date}</span>
+              <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-200 dark:border-white/5">
+                <span className="text-xs text-slate-500 dark:text-gray-500">
+                  {item.date}
+                </span>
                 <div className="flex gap-2">
-                  <button className="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+                  <button className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 text-slate-400 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                     <Edit className="w-4 h-4" />
                   </button>
-                  <button className="p-2 rounded-lg hover:bg-red-500/10 text-gray-400 hover:text-red-500 transition-colors">
+                  <button className="p-2 rounded-lg hover:bg-red-500/10 text-slate-400 dark:text-gray-400 hover:text-red-500 transition-colors">
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
@@ -173,12 +179,14 @@ export default function PortfolioPage() {
       </div>
 
       {filteredItems.length === 0 && (
-        <Card className="text-center py-16 border-dashed border-white/10">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/5 mb-4">
-            <ImageIcon className="w-8 h-8 text-gray-500" />
+        <Card className="text-center py-16 border-dashed border-slate-200 dark:border-white/10">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-white/5 mb-4">
+            <ImageIcon className="w-8 h-8 text-slate-400 dark:text-gray-500" />
           </div>
-          <h3 className="text-xl font-bold text-white mb-2">No items found</h3>
-          <p className="text-gray-400">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+            No items found
+          </h3>
+          <p className="text-slate-500 dark:text-gray-400">
             Add some portfolio items to showcase your work
           </p>
         </Card>

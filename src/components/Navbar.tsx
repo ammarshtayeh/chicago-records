@@ -1,10 +1,13 @@
 "use client";
 
+import { ThemeToggle } from "./ui/ThemeToggle";
+import { useTheme } from "next-themes";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X, Camera } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "./ui/Button";
 
 const navLinks = [
@@ -18,13 +21,22 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const backgroundColor = useTransform(
     scrollY,
     [0, 50],
-    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.95)"],
+    [
+      "rgba(0, 0, 0, 0)",
+      theme === "dark" ? "rgba(0, 0, 0, 0.95)" : "rgba(255, 255, 255, 0.95)",
+    ],
   );
 
   const backdropBlur = useTransform(
@@ -37,7 +49,7 @@ export default function Navbar() {
     <>
       <motion.nav
         style={{ backgroundColor, backdropFilter: backdropBlur }}
-        className="fixed top-0 left-0 right-0 z-50 border-b border-white/0 hover:border-white/10 transition-all duration-300"
+        className="fixed top-0 left-0 right-0 z-50 border-b border-transparent dark:border-white/0 hover:border-gray-200 dark:hover:border-white/10 transition-all duration-300"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 sm:h-24 relative">
@@ -59,10 +71,10 @@ export default function Navbar() {
                 />
               </motion.div>
               <div className="hidden sm:block">
-                <div className="text-lg font-bold text-white leading-tight group-hover:text-yellow-500 transition-colors">
+                <div className="text-lg font-bold text-slate-900 dark:text-white leading-tight group-hover:text-yellow-500 transition-colors">
                   استوديو شيكاغو
                 </div>
-                <div className="text-[10px] text-gray-400 font-light tracking-wider">
+                <div className="text-[10px] text-slate-500 dark:text-gray-400 font-light tracking-wider">
                   PHOTOGRAPHY
                 </div>
               </div>
@@ -74,7 +86,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="relative text-base font-medium text-gray-200 hover:text-white transition-colors group py-2"
+                  className="relative text-base font-medium text-slate-600 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors group py-2"
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 rounded-full group-hover:w-full transition-all duration-300" />
@@ -84,6 +96,7 @@ export default function Navbar() {
 
             {/* Action Buttons - Left Side (RTL) */}
             <div className="flex items-center gap-4 relative z-20">
+              <ThemeToggle />
               <Link href="/booking" className="hidden sm:block">
                 <Button
                   size="sm"
@@ -98,7 +111,7 @@ export default function Navbar() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+                className="lg:hidden text-slate-900 dark:text-white p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
               >
                 {isOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -112,7 +125,7 @@ export default function Navbar() {
         initial={false}
         animate={isOpen ? { x: 0 } : { x: "100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-black/95 backdrop-blur-xl z-40 lg:hidden border-l border-white/10 shadow-2xl h-full flex flex-col"
+        className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white/95 dark:bg-black/95 backdrop-blur-xl z-40 lg:hidden border-l border-gray-200 dark:border-white/10 shadow-2xl h-full flex flex-col"
       >
         <div className="flex flex-col h-full p-6 pt-28">
           <div className="flex-1 space-y-4">
@@ -126,7 +139,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-xl font-bold text-gray-200 hover:text-yellow-500 transition-colors py-3 border-b border-white/5"
+                  className="block text-xl font-bold text-slate-800 dark:text-gray-200 hover:text-yellow-500 transition-colors py-3 border-b border-gray-100 dark:border-white/5"
                 >
                   {link.name}
                 </Link>

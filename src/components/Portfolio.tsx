@@ -73,10 +73,7 @@ export default function Portfolio() {
       : portfolioItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <section
-      id="portfolio"
-      className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black"
-    >
+    <section className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-black dark:via-gray-900 dark:to-black">
       {/* Background Effects */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-purple-500/05 rounded-full blur-3xl animate-pulse" />
       <div
@@ -105,12 +102,12 @@ export default function Portfolio() {
             <span className="block text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-purple-300 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(168,85,247,0.5)] mb-2">
               أعمالنا المميزة
             </span>
-            <span className="block text-white text-3xl sm:text-4xl md:text-5xl">
+            <span className="block text-slate-900 dark:text-white text-3xl sm:text-4xl md:text-5xl">
               لحظات لا تُنسى
             </span>
           </h2>
 
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light mb-10">
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-light mb-10">
             استعرض مجموعة من أفضل أعمالنا في التصوير الفوتوغرافي
           </p>
 
@@ -125,7 +122,7 @@ export default function Portfolio() {
                 className={`px-6 py-2.5 rounded-full font-bold text-sm sm:text-base transition-all duration-300 ${
                   selectedCategory === category
                     ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/40"
-                    : "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 border border-gray-700 hover:text-white"
+                    : "bg-white dark:bg-gray-800/50 text-slate-600 dark:text-gray-400 hover:bg-slate-50 dark:hover:bg-gray-700/50 border border-slate-200 dark:border-gray-700 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
                 {category}
@@ -148,12 +145,12 @@ export default function Portfolio() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group relative rounded-2xl overflow-hidden bg-gray-800/40 border border-gray-700/50 hover:border-purple-500/40 shadow-xl hover:shadow-purple-500/20 transition-all duration-300"
+              className="group relative rounded-2xl overflow-hidden bg-white dark:bg-gray-800/40 border border-slate-200 dark:border-gray-700/50 hover:border-purple-500/40 shadow-xl hover:shadow-purple-500/20 transition-all duration-300"
             >
               {/* Image Placeholder */}
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-800 to-gray-900 group-hover:scale-105 transition-transform duration-700">
+              <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 dark:from-gray-800 dark:to-gray-900 group-hover:scale-105 transition-transform duration-700">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Camera className="w-16 h-16 text-gray-700 group-hover:text-purple-500/50 transition-colors duration-500" />
+                  <Camera className="w-16 h-16 text-slate-300 dark:text-gray-700 group-hover:text-purple-500/50 transition-colors duration-500" />
                 </div>
 
                 {/* Overlay */}

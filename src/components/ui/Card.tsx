@@ -18,8 +18,9 @@ export default function Card({ children, className, glass = true }: CardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "rounded-2xl backdrop-blur-xl transition-all duration-300",
-        glass && "glass",
+        "rounded-2xl transition-all duration-300",
+        glass &&
+          "backdrop-blur-xl bg-white/60 dark:bg-black/40 border border-slate-200 dark:border-white/10",
         className,
       )}
     >

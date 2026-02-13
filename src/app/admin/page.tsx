@@ -91,8 +91,10 @@ export default function AdminDashboard() {
             <Card className="relative overflow-hidden group hover:border-yellow-500/50 transition-colors">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm mb-1">{stat.name}</p>
-                  <p className="text-3xl font-bold text-white mb-2">
+                  <p className="text-slate-500 dark:text-gray-400 text-sm mb-1">
+                    {stat.name}
+                  </p>
+                  <p className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
                     {stat.value}
                   </p>
                   <div className="flex items-center">
@@ -100,7 +102,7 @@ export default function AdminDashboard() {
                     <span className="text-green-500 text-sm font-medium">
                       {stat.change}
                     </span>
-                    <span className="text-gray-500 text-xs ml-2">
+                    <span className="text-slate-400 dark:text-gray-500 text-xs ml-2">
                       vs last month
                     </span>
                   </div>
@@ -124,28 +126,30 @@ export default function AdminDashboard() {
       >
         <Card>
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-white">Recent Bookings</h2>
-            <button className="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-yellow-500 text-sm font-medium transition-colors">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+              Recent Bookings
+            </h2>
+            <button className="px-4 py-2 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-yellow-600 dark:text-yellow-500 text-sm font-medium transition-colors">
               View All Bookings
             </button>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/10">
-                  <th className="text-left py-4 px-4 text-gray-400 font-medium">
+                <tr className="border-b border-slate-200 dark:border-white/10">
+                  <th className="text-left py-4 px-4 text-slate-500 dark:text-gray-400 font-medium">
                     Client
                   </th>
-                  <th className="text-left py-4 px-4 text-gray-400 font-medium">
+                  <th className="text-left py-4 px-4 text-slate-500 dark:text-gray-400 font-medium">
                     Service
                   </th>
-                  <th className="text-left py-4 px-4 text-gray-400 font-medium">
+                  <th className="text-left py-4 px-4 text-slate-500 dark:text-gray-400 font-medium">
                     Date
                   </th>
-                  <th className="text-left py-4 px-4 text-gray-400 font-medium">
+                  <th className="text-left py-4 px-4 text-slate-500 dark:text-gray-400 font-medium">
                     Time
                   </th>
-                  <th className="text-left py-4 px-4 text-gray-400 font-medium">
+                  <th className="text-left py-4 px-4 text-slate-500 dark:text-gray-400 font-medium">
                     Status
                   </th>
                 </tr>
@@ -154,16 +158,20 @@ export default function AdminDashboard() {
                 {recentBookings.map((booking) => (
                   <tr
                     key={booking.id}
-                    className="border-b border-white/5 hover:bg-white/5 transition-colors group"
+                    className="border-b border-slate-200 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors group"
                   >
-                    <td className="py-4 px-4 text-white font-medium">
+                    <td className="py-4 px-4 text-slate-900 dark:text-white font-medium">
                       {booking.client}
                     </td>
-                    <td className="py-4 px-4 text-gray-300">
+                    <td className="py-4 px-4 text-slate-600 dark:text-gray-300">
                       {booking.service}
                     </td>
-                    <td className="py-4 px-4 text-gray-300">{booking.date}</td>
-                    <td className="py-4 px-4 text-gray-300">{booking.time}</td>
+                    <td className="py-4 px-4 text-slate-600 dark:text-gray-300">
+                      {booking.date}
+                    </td>
+                    <td className="py-4 px-4 text-slate-600 dark:text-gray-300">
+                      {booking.time}
+                    </td>
                     <td className="py-4 px-4">
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-bold ${
