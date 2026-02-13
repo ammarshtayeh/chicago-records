@@ -3,7 +3,7 @@
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import { motion } from "framer-motion";
-import { Calendar, Clock, Mail, Phone, Search } from "lucide-react";
+import { Calendar, Clock, Mail, Phone, Search, Filter } from "lucide-react";
 import { useState } from "react";
 
 const bookings = [
@@ -12,55 +12,55 @@ const bookings = [
     client: "Ahmed Hassan",
     email: "ahmed@example.com",
     phone: "+1 555-0101",
-    service: "Vocal Recording",
+    service: "Wedding Photography",
     date: "2026-02-15",
-    time: "10:00 AM - 12:00 PM",
+    time: "10:00 AM - 10:00 PM",
     status: "Confirmed",
-    notes: "Needs microphone setup for rap recording",
+    notes: "Full day wedding coverage, including reception",
   },
   {
     id: 2,
     client: "Sara Mohamed",
     email: "sara@example.com",
     phone: "+1 555-0102",
-    service: "Mixing & Mastering",
+    service: "Portrait Session",
     date: "2026-02-15",
     time: "2:00 PM - 4:00 PM",
     status: "Pending",
-    notes: "Album project - 10 tracks",
+    notes: "Outdoor session at the park",
   },
   {
     id: 3,
     client: "Omar Ali",
     email: "omar@example.com",
     phone: "+1 555-0103",
-    service: "Music Production",
+    service: "Commercial Shoot",
     date: "2026-02-16",
     time: "11:00 AM - 3:00 PM",
     status: "Confirmed",
-    notes: "Electronic music production",
+    notes: "Product photography for new clothing line",
   },
   {
     id: 4,
     client: "Layla Ibrahim",
     email: "layla@example.com",
     phone: "+1 555-0104",
-    service: "Voice Over",
+    service: "Event Coverage",
     date: "2026-02-16",
-    time: "3:00 PM - 4:00 PM",
+    time: "6:00 PM - 10:00 PM",
     status: "Confirmed",
-    notes: "Commercial voice over",
+    notes: "Corporate annual dinner",
   },
   {
     id: 5,
     client: "Khaled Youssef",
     email: "khaled@example.com",
     phone: "+1 555-0105",
-    service: "Vocal Recording",
+    service: "Family Session",
     date: "2026-02-17",
-    time: "10:00 AM - 1:00 PM",
+    time: "10:00 AM - 12:00 PM",
     status: "Cancelled",
-    notes: "Client requested cancellation",
+    notes: "Rescheduled to next week",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function BookingsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <h1 className="text-3xl font-bold text-white">Bookings Management</h1>
         <Button variant="primary">New Booking</Button>
       </div>
@@ -88,25 +88,28 @@ export default function BookingsPage() {
       <Card>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 relative">
-            <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
-              placeholder="Search bookings..."
-              className="w-full pl-4 pr-10 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-[#ffd700] transition-colors"
+              placeholder="Search clients or services..."
+              className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <select
-            className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#ffd700] transition-colors"
-            value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value)}
-          >
-            <option value="All">All Status</option>
-            <option value="Confirmed">Confirmed</option>
-            <option value="Pending">Pending</option>
-            <option value="Cancelled">Cancelled</option>
-          </select>
+          <div className="relative min-w-[200px]">
+            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <select
+              className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/20 transition-all appearance-none cursor-pointer"
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
+            >
+              <option value="All">All Status</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Pending">Pending</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
         </div>
       </Card>
 
@@ -119,71 +122,76 @@ export default function BookingsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
           >
-            <Card className="hover:border-[#ffd700]/30 transition-colors">
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                <div className="flex-1 space-y-3">
-                  <div className="flex items-start justify-between">
+            <Card className="hover:border-yellow-500/30 transition-all duration-300 group">
+              <div className="flex flex-col lg:flex-row justify-between gap-6">
+                <div className="flex-1 space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
                       <h3 className="text-xl font-bold text-white mb-1">
                         {booking.client}
                       </h3>
-                      <p className="text-[#ffd700] font-medium">
+                      <p className="text-yellow-500 font-medium">
                         {booking.service}
                       </p>
                     </div>
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      className={`px-4 py-1.5 rounded-full text-sm font-bold border ${
                         booking.status === "Confirmed"
-                          ? "bg-green-500/20 text-green-500"
+                          ? "bg-green-500/10 text-green-500 border-green-500/20"
                           : booking.status === "Pending"
-                            ? "bg-yellow-500/20 text-yellow-500"
-                            : "bg-red-500/20 text-red-500"
+                            ? "bg-yellow-500/10 text-yellow-500 border-yellow-500/20"
+                            : "bg-red-500/10 text-red-500 border-red-500/20"
                       }`}
                     >
                       {booking.status}
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-400">
-                    <div className="flex items-center">
-                      <Mail className="w-4 h-4 ml-2" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-8 text-sm text-gray-400">
+                    <div className="flex items-center hover:text-white transition-colors">
+                      <Mail className="w-4 h-4 mr-2 text-gray-500" />
                       {booking.email}
                     </div>
-                    <div className="flex items-center">
-                      <Phone className="w-4 h-4 ml-2" />
+                    <div className="flex items-center hover:text-white transition-colors">
+                      <Phone className="w-4 h-4 mr-2 text-gray-500" />
                       {booking.phone}
                     </div>
-                    <div className="flex items-center">
-                      <Calendar className="w-4 h-4 ml-2" />
+                    <div className="flex items-center hover:text-white transition-colors">
+                      <Calendar className="w-4 h-4 mr-2 text-gray-500" />
                       {booking.date}
                     </div>
-                    <div className="flex items-center">
-                      <Clock className="w-4 h-4 ml-2" />
+                    <div className="flex items-center hover:text-white transition-colors">
+                      <Clock className="w-4 h-4 mr-2 text-gray-500" />
                       {booking.time}
                     </div>
                   </div>
 
                   {booking.notes && (
-                    <p className="text-sm text-gray-500 italic">
-                      Note: {booking.notes}
-                    </p>
+                    <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+                      <p className="text-sm text-gray-400 italic">
+                        <span className="font-semibold text-gray-300 not-italic">
+                          Note:{" "}
+                        </span>
+                        {booking.notes}
+                      </p>
+                    </div>
                   )}
                 </div>
 
-                <div className="flex lg:flex-col gap-2">
+                <div className="flex lg:flex-col gap-3 justify-end lg:justify-start lg:min-w-[120px]">
                   <Button
                     variant="secondary"
                     size="sm"
                     className="flex-1 lg:flex-none"
                   >
-                    Edit
+                    Edit Details
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
                     className="flex-1 lg:flex-none"
                   >
-                    View
+                    View Invoice
                   </Button>
                 </div>
               </div>
@@ -193,8 +201,14 @@ export default function BookingsPage() {
       </div>
 
       {filteredBookings.length === 0 && (
-        <Card className="text-center py-12">
-          <p className="text-gray-400">No bookings found</p>
+        <Card className="text-center py-16 border-dashed border-white/10">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/5 mb-4">
+            <Search className="w-8 h-8 text-gray-500" />
+          </div>
+          <h3 className="text-xl font-bold text-white mb-2">
+            No bookings found
+          </h3>
+          <p className="text-gray-400">Try adjusting your search criteria</p>
         </Card>
       )}
     </div>

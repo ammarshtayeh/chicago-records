@@ -3,10 +3,11 @@
 import { cn } from "@/lib/utils";
 import {
   Calendar,
-  FolderOpen,
+  Image as ImageIcon,
   Home,
   LogOut,
   Menu,
+  MessageSquare,
   Settings,
   Users,
   X,
@@ -19,8 +20,8 @@ import { useState } from "react";
 const navItems = [
   { name: "Dashboard", href: "/admin", icon: Home },
   { name: "Bookings", href: "/admin/bookings", icon: Calendar },
-  { name: "Projects", href: "/admin/projects", icon: FolderOpen },
-  { name: "Clients", href: "/admin/clients", icon: Users },
+  { name: "Portfolio", href: "/admin/portfolio", icon: ImageIcon },
+  { name: "Messages", href: "/admin/messages", icon: MessageSquare },
   { name: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
@@ -56,7 +57,7 @@ export default function AdminLayout({
               <div className="relative w-40 h-12">
                 <Image
                   src="/logo.jpg"
-                  alt="Chicago Records"
+                  alt="Chicago Studio"
                   fill
                   className="object-contain"
                 />
@@ -81,7 +82,7 @@ export default function AdminLayout({
                   className={cn(
                     "flex items-center space-x-3 rtl:space-x-reverse px-4 py-3 rounded-lg transition-all",
                     isActive
-                      ? "bg-gradient-to-r from-[#ffd700] to-[#d4af37] text-black"
+                      ? "bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold"
                       : "text-gray-400 hover:bg-white/5 hover:text-white",
                   )}
                 >
@@ -103,7 +104,7 @@ export default function AdminLayout({
       </aside>
 
       {/* Main Content */}
-      <div className="lg:mr-64">
+      <div className="lg:ml-64">
         {/* Top Bar */}
         <header className="sticky top-0 z-30 bg-[#1a1a1a]/95 backdrop-blur-lg border-b border-white/10">
           <div className="flex items-center justify-between px-6 py-4">
@@ -115,13 +116,11 @@ export default function AdminLayout({
             </button>
             <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
-              <div className="text-right">
+              <div className="text-right hidden sm:block">
                 <p className="text-sm text-white font-medium">Admin User</p>
-                <p className="text-xs text-gray-400">
-                  admin@chicagorecords.com
-                </p>
+                <p className="text-xs text-gray-400">admin@chicagostudio.com</p>
               </div>
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#ffd700] to-[#d4af37] flex items-center justify-center text-black font-bold">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center text-black font-bold">
                 A
               </div>
             </div>
