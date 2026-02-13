@@ -3,7 +3,7 @@
 import { ThemeToggle } from "./ui/ThemeToggle";
 import { useTheme } from "next-themes";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X, Camera } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,32 +24,25 @@ export default function Navbar() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { scrollY } = useScroll();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 50],
-    [
-      "rgba(0, 0, 0, 0)",
-      theme === "dark" ? "rgba(0, 0, 0, 0.95)" : "rgba(255, 255, 255, 0.95)",
-    ],
-  );
-
-  const backdropBlur = useTransform(
-    scrollY,
-    [0, 50],
-    ["blur(0px)", "blur(12px)"],
-  );
 
   return (
     <>
-      <motion.nav
-        style={{ backgroundColor, backdropFilter: backdropBlur }}
-        className="fixed top-0 left-0 right-0 z-50 border-b border-transparent dark:border-white/0 hover:border-gray-200 dark:hover:border-white/10 transition-all duration-300"
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/95 dark:bg-black/95 backdrop-blur-md border-gray-200 dark:border-white/10"
+            : "bg-transparent border-transparent dark:border-white/0"
+        }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 sm:h-24 relative">
@@ -118,7 +111,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu */}
       <motion.div
