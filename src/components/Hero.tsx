@@ -66,7 +66,7 @@ export default function Hero() {
           opacity: [0.15, 0.3, 0.15],
         }}
         transition={{ duration: 8, repeat: Infinity }}
-        className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-yellow-500/20 blur-3xl pointer-events-none"
+        className="absolute top-1/4 left-10 w-72 h-72 md:w-96 md:h-96 rounded-full bg-yellow-500/20 blur-3xl pointer-events-none"
       />
       <motion.div
         animate={{
@@ -75,7 +75,7 @@ export default function Hero() {
           opacity: [0.1, 0.2, 0.1],
         }}
         transition={{ duration: 10, repeat: Infinity }}
-        className="absolute bottom-1/4 right-10 w-[500px] h-[500px] rounded-full bg-cyan-500/15 blur-3xl pointer-events-none"
+        className="absolute bottom-1/4 right-10 w-64 h-64 md:w-[500px] md:h-[500px] rounded-full bg-cyan-500/15 blur-3xl pointer-events-none"
       />
 
       {/* Content */}
