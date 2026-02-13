@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chicago Records Studio Website
 
-## Getting Started
+A modern, professional website for Chicago Records recording studio built with Next.js, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## 🎵 Features
+
+### Frontend
+
+- **Hero Section** with animated audio waveforms
+- **Services** showcase with interactive cards
+- **Pricing** packages with detailed features
+- **Contact Form** with validation
+- **Responsive Design** for all devices
+- **Dark Theme** with golden accents
+- **Smooth Animations** using Framer Motion
+- **Glassmorphism** effects
+
+### Admin Dashboard
+
+- **Dashboard Overview** with statistics
+- **Bookings Management** with search and filters
+- **Projects Management** with grid layout
+- **Settings** for studio information and notifications
+- **Responsive Sidebar** navigation
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+chicago-records/
+├── src/
+│   ├── app/
+│   │   ├── admin/           # Admin dashboard pages
+│   │   │   ├── bookings/
+│   │   │   ├── projects/
+│   │   │   ├── settings/
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── globals.css      # Global styles
+│   │   ├── layout.tsx
+│   │   └── page.tsx         # Main homepage
+│   ├── components/
+│   │   ├── ui/              # Reusable UI components
+│   │   │   ├── Button.tsx
+│   │   │   └── Card.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Pricing.tsx
+│   │   └── Services.tsx
+│   └── lib/
+│       └── utils.ts         # Utility functions
+├── public/
+│   └── chicago-logo.jpg     # Studio logo
+└── package.json
+```
 
-## Learn More
+## 🎨 Design System
 
-To learn more about Next.js, take a look at the following resources:
+### Colors
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Background**: `#0a0a0a` (Dark)
+- **Primary**: `#ffd700` (Gold)
+- **Accent**: `#00f0ff` (Cyan)
+- **Secondary**: `#1a1a1a` (Dark Gray)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Typography
 
-## Deploy on Vercel
+- **Primary Font**: Poppins
+- **Display Font**: Montserrat
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔑 Admin Access
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Navigate to `/admin` to access the admin dashboard.
+
+## 📦 Technologies
+
+- **Next.js 16** - React framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Framer Motion** - Animations
+- **Lucide React** - Icons
+
+## 🌐 Pages
+
+### Public Pages
+
+- `/` - Homepage with all sections
+- `/#services` - Services section
+- `/#pricing` - Pricing packages
+- `/#contact` - Contact form
+
+### Admin Pages
+
+- `/admin` - Dashboard overview
+- `/admin/bookings` - Manage bookings
+- `/admin/projects` - Manage projects
+- `/admin/settings` - Studio settings
+
+## 📝 License
+
+This project is private and proprietary to Chicago Records.
+
+## 🤝 Support
+
+For support, email info@chicagorecords.com
