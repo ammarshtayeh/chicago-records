@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Menu, X, Sparkles, Camera } from "lucide-react";
+import { Menu, X, Camera } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -10,12 +10,11 @@ import Button from "./ui/Button";
 const navLinks = [
   { name: "الرئيسية", href: "/" },
   { name: "الخدمات", href: "/#services" },
-  { name: "معرض الأعمال", href: "/portfolio" },
+  { name: "الأعمال", href: "/portfolio" },
   { name: "لماذا نحن", href: "/#why-us" },
   { name: "الأسعار", href: "/pricing" },
   { name: "الفريق", href: "/team" },
-  { name: "احجز الآن", href: "/booking" },
-  { name: "تواصل معنا", href: "/contact" },
+  { name: "تواصل", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -24,24 +23,32 @@ export default function Navbar() {
 
   const backgroundColor = useTransform(
     scrollY,
-    [0, 100],
-    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.98)"],
+    [0, 50],
+    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.95)"],
+  );
+
+  const backdropBlur = useTransform(
+    scrollY,
+    [0, 50],
+    ["blur(0px)", "blur(12px)"],
   );
 
   return (
     <>
       <motion.nav
-        style={{ backgroundColor }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-yellow-500/0 hover:border-yellow-500/30 transition-all duration-300"
+        style={{ backgroundColor, backdropFilter: backdropBlur }}
+        className="fixed top-0 left-0 right-0 z-50 border-b border-white/0 hover:border-white/10 transition-all duration-300"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-28">
-            {/* Logo - Circular */}
-            <Link href="/" className="flex items-center group">
+          <div className="flex items-center justify-between h-20 sm:h-24 relative">
+            {/* Logo - Right Side (RTL) */}
+            <Link
+              href="/"
+              className="flex items-center group gap-3 relative z-20"
+            >
               <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 border-yellow-500/50 shadow-2xl shadow-yellow-500/50 group-hover:border-yellow-500 group-hover:shadow-yellow-500/80 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-yellow-500/50 shadow-lg shadow-yellow-500/20 group-hover:border-yellow-500 group-hover:shadow-yellow-500/40 transition-all duration-300"
               >
                 <Image
                   src="/logo.jpg"
@@ -51,42 +58,51 @@ export default function Navbar() {
                   priority
                 />
               </motion.div>
-              <div className="mr-4 hidden sm:block">
-                <div className="text-2xl font-black text-white group-hover:text-yellow-500 transition-colors">
+              <div className="hidden sm:block">
+                <div className="text-lg font-bold text-white leading-tight group-hover:text-yellow-500 transition-colors">
                   استوديو شيكاغو
                 </div>
-                <div className="text-sm text-gray-400">للتصوير الفوتوغرافي</div>
+                <div className="text-[10px] text-gray-400 font-light tracking-wider">
+                  PHOTOGRAPHY
+                </div>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link, index) => (
-                <motion.div
+            {/* Desktop Navigation - Centered Absolute */}
+            <div className="hidden lg:flex items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+              {navLinks.map((link) => (
+                <Link
                   key={link.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  href={link.href}
+                  className="relative text-base font-medium text-gray-200 hover:text-white transition-colors group py-2"
                 >
-                  <Link
-                    href={link.href}
-                    className="relative text-lg font-bold text-white/95 hover:text-yellow-500 transition-all duration-300 group"
-                  >
-                    {link.name}
-                    <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 rounded-full group-hover:w-full transition-all duration-300 shadow-lg shadow-yellow-500/50" />
-                  </Link>
-                </motion.div>
+                  {link.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 rounded-full group-hover:w-full transition-all duration-300" />
+                </Link>
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-white p-3 rounded-xl hover:bg-yellow-500/10 transition-colors border border-yellow-500/30"
-            >
-              {isOpen ? <X size={32} /> : <Menu size={32} />}
-            </motion.button>
+            {/* Action Buttons - Left Side (RTL) */}
+            <div className="flex items-center gap-4 relative z-20">
+              <Link href="/booking" className="hidden sm:block">
+                <Button
+                  size="sm"
+                  variant="primary"
+                  className="shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 text-sm font-bold px-6 py-2.5 h-auto rounded-xl"
+                >
+                  <Camera className="w-4 h-4 ml-2" />
+                  احجز موعدك
+                </Button>
+              </Link>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+              >
+                {isOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -96,35 +112,34 @@ export default function Navbar() {
         initial={false}
         animate={isOpen ? { x: 0 } : { x: "100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-black/99 backdrop-blur-3xl z-40 lg:hidden border-l-2 border-yellow-500/30 shadow-2xl shadow-yellow-500/20 overflow-y-auto"
+        className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-black/95 backdrop-blur-xl z-40 lg:hidden border-l border-white/10 shadow-2xl h-full flex flex-col"
       >
-        <div className="flex flex-col h-full p-8 pt-36">
-          <div className="flex-1 space-y-6">
+        <div className="flex flex-col h-full p-6 pt-28">
+          <div className="flex-1 space-y-4">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
-                initial={{ opacity: 0, x: 50 }}
-                animate={isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                 transition={{ delay: index * 0.05 }}
               >
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-2xl font-black text-white hover:text-yellow-500 transition-colors py-3 border-b-2 border-white/10 hover:border-yellow-500/50"
+                  className="block text-xl font-bold text-gray-200 hover:text-yellow-500 transition-colors py-3 border-b border-white/5"
                 >
                   {link.name}
                 </Link>
               </motion.div>
             ))}
           </div>
-          <Link href="/booking">
+          <Link href="/booking" onClick={() => setIsOpen(false)}>
             <Button
               size="lg"
               variant="primary"
-              className="w-full shadow-2xl shadow-yellow-500/40 text-xl font-bold py-6 mt-6"
-              onClick={() => setIsOpen(false)}
+              className="w-full shadow-xl shadow-yellow-500/20 text-lg font-bold py-5 mt-6 rounded-xl"
             >
-              <Camera className="w-6 h-6 ml-2" />
+              <Camera className="w-5 h-5 ml-2" />
               احجز الآن
             </Button>
           </Link>

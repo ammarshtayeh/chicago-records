@@ -83,105 +83,88 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-32 sm:py-40 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black"
+      className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black"
     >
       {/* Background Decorations */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-yellow-500/10 rounded-full blur-3xl animate-pulse" />
-      <div
-        className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
-        style={{ animationDelay: "1.5s" }}
-      />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-yellow-500/05 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/05 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border-2 border-yellow-500/50 backdrop-blur-xl shadow-2xl shadow-yellow-500/30 mb-10">
-            <Camera className="w-7 h-7 text-yellow-400" />
-            <span className="text-yellow-400 font-black text-2xl">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 backdrop-blur-md mb-6">
+            <Camera className="w-4 h-4 text-yellow-500" />
+            <span className="text-yellow-500 font-bold text-sm">
               خدمات التصوير
             </span>
-            <Sparkles className="w-7 h-7 text-yellow-400" />
           </div>
 
-          <h2 className="text-6xl sm:text-7xl md:text-8xl font-black mb-10">
-            <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(255,215,0,0.7)]">
+          <h2 className="font-black mb-6">
+            <span className="block text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,215,0,0.5)] mb-2">
               خدمات تصوير متكاملة
             </span>
-            <br />
-            <span className="text-white text-5xl sm:text-6xl md:text-7xl">
+            <span className="block text-white text-3xl sm:text-4xl">
               لجميع المناسبات
             </span>
           </h2>
 
-          <p className="text-2xl sm:text-3xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-semibold">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
             نقدم مجموعة شاملة من خدمات التصوير الفوتوغرافي والفيديوغرافي بأعلى
             معايير الجودة
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -12, scale: 1.03 }}
-              className="h-full p-10 rounded-3xl bg-gradient-to-br from-gray-800/95 to-gray-900/98 backdrop-blur-xl border-2 border-yellow-500/30 shadow-2xl hover:shadow-yellow-500/40 hover:border-yellow-500/60 transition-all duration-300 group relative overflow-hidden"
+              whileHover={{ y: -8 }}
+              className="h-full p-8 rounded-2xl bg-gray-900/60 backdrop-blur-md border border-white/10 hover:border-yellow-500/40 hover:bg-gray-800/80 transition-all duration-300 group relative overflow-hidden"
             >
-              {/* Background Gradient */}
+              {/* Background Gradient on Hover*/}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-15 transition-all duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-all duration-500`}
               />
 
               {/* Icon */}
               <motion.div
-                whileHover={{ rotate: 360, scale: 1.15 }}
-                transition={{ duration: 0.6 }}
-                className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${service.iconBg} p-5 mb-8 shadow-2xl ${service.shadow} relative z-10`}
+                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.iconBg} p-4 mb-6 shadow-lg shadow-black/50 relative z-10 flex items-center justify-center`}
               >
-                <service.icon
-                  className="w-full h-full text-white"
-                  strokeWidth={2.5}
-                />
+                <service.icon className="w-8 h-8 text-white" strokeWidth={2} />
               </motion.div>
 
               {/* Title */}
-              <h3 className="text-3xl font-black text-white mb-5 relative z-10">
+              <h3 className="text-2xl font-bold text-white mb-4 relative z-10">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-200 mb-8 leading-relaxed text-lg relative z-10">
+              <p className="text-gray-400 mb-6 leading-relaxed text-base relative z-10">
                 {service.description}
               </p>
 
               {/* Features */}
-              <ul className="space-y-4 relative z-10">
+              <ul className="space-y-3 relative z-10 border-t border-white/5 pt-6">
                 {service.features.map((feature, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + i * 0.1 }}
-                    className="flex items-center gap-4"
-                  >
+                  <li key={i} className="flex items-center gap-3">
                     <div
-                      className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} shadow-lg`}
+                      className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}`}
                     />
-                    <span className="text-gray-100 text-lg font-medium">
+                    <span className="text-gray-300 text-sm font-medium">
                       {feature}
                     </span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </motion.div>

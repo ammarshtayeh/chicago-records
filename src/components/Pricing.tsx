@@ -2,21 +2,15 @@
 
 import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import { Check, Crown, Sparkles, Star, Camera } from "lucide-react";
+import { Check, Crown, Star, Camera } from "lucide-react";
 
 const packages = [
   {
     name: "باقة البداية",
     price: "$200",
     duration: "ساعتين",
-    description: "مثالية للجلسات الشخصية والمناسبات الصغيرة",
-    features: [
-      "ساعتين تصوير",
-      "50 صورة معدلة",
-      "مصور محترف",
-      "نسخة رقمية عالية الجودة",
-      "معالجة أساسية للصور",
-    ],
+    description: "مثالية للجلسات الشخصية",
+    features: ["ساعتين تصوير", "50 صورة معدلة", "مصور محترف", "نسخة رقمية"],
     popular: false,
     gradient: "from-gray-600 to-gray-800",
   },
@@ -24,15 +18,13 @@ const packages = [
     name: "باقة الاحتراف",
     price: "$500",
     duration: "5 ساعات",
-    description: "الأكثر طلباً لحفلات الزفاف والمناسبات الكبرى",
+    description: "الأكثر طلباً للأعراس",
     features: [
       "5 ساعات تصوير",
       "150 صورة معدلة",
-      "مصورين محترفين",
-      "معالجة احترافية متقدمة",
-      "ألبوم رقمي فاخر",
-      "فيديو قصير (1 دقيقة)",
-      "نسخ متعددة الصيغ",
+      "معالجة احترافية",
+      "ألبوم رقمي",
+      "فيديو قصير",
     ],
     popular: true,
     gradient: "from-yellow-400 to-orange-500",
@@ -41,16 +33,14 @@ const packages = [
     name: "باقة الفخامة",
     price: "$1500",
     duration: "يوم كامل",
-    description: "حل شامل للمناسبات الكبرى والأعراس الفاخرة",
+    description: "حل شامل للمناسبات الكبرى",
     features: [
-      "تغطية كاملة ليوم كامل",
+      "تغطية يوم كامل",
       "300+ صورة معدلة",
-      "فريق تصوير متكامل",
-      "معالجة احترافية شاملة",
-      "ألبوم مطبوع فاخر",
-      "فيديو سينمائي كامل",
-      "تصوير جوي (Drone)",
-      "تسليم سريع خلال أسبوع",
+      "فريق متكامل",
+      "ألبوم مطبوع",
+      "فيديو سينمائي",
+      "تصوير جوي",
     ],
     popular: false,
     gradient: "from-cyan-400 to-blue-500",
@@ -61,84 +51,87 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="py-32 sm:py-40 relative overflow-hidden bg-black"
+      className="py-24 sm:py-32 relative overflow-hidden bg-black"
     >
       {/* Background Effects */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-yellow-500/05 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/05 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 backdrop-blur-xl shadow-lg shadow-yellow-500/20 mb-8">
-            <Crown className="w-6 h-6 text-yellow-500" />
-            <span className="text-yellow-500 font-bold text-xl">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 backdrop-blur-md shadow-lg shadow-yellow-500/20 mb-8">
+            <Crown className="w-5 h-5 text-yellow-500" />
+            <span className="text-yellow-500 font-bold text-sm sm:text-base">
               الأسعار والباقات
             </span>
           </div>
 
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8">
-            <span className="text-white">اختر الباقة</span>
-            <br />
-            <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,215,0,0.5)]">
+          <h2 className="font-black mb-6">
+            <span className="block text-white text-4xl sm:text-5xl md:text-6xl mb-2">
+              اختر الباقة
+            </span>
+            <span className="block text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,215,0,0.5)]">
               المناسبة لك
             </span>
           </h2>
 
-          <p className="text-2xl sm:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
             باقات تصوير مرنة تناسب جميع المناسبات والميزانيات
           </p>
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className={pkg.popular ? "lg:scale-110 lg:z-10" : ""}
+              className={`${pkg.popular ? "md:col-span-2 lg:col-span-1 lg:scale-105 lg:z-10" : ""}`}
             >
               <div
-                className={`h-full rounded-3xl bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-xl border shadow-2xl transition-all duration-300 overflow-hidden ${
+                className={`h-full rounded-3xl bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-xl border shadow-xl transition-all duration-300 overflow-hidden flex flex-col ${
                   pkg.popular
-                    ? "border-2 border-yellow-500 shadow-yellow-500/30"
-                    : "border border-yellow-500/20 hover:border-yellow-500/50"
+                    ? "border-2 border-yellow-500 shadow-yellow-500/20"
+                    : "border border-yellow-500/20 hover:border-yellow-500/40"
                 }`}
               >
                 {/* Popular Badge */}
                 {pkg.popular && (
-                  <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-center py-4 px-4 font-bold text-lg flex items-center justify-center gap-2">
-                    <Star className="w-5 h-5 fill-current" />
+                  <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-center py-2 px-4 font-bold text-sm flex items-center justify-center gap-2">
+                    <Star className="w-4 h-4 fill-current" />
                     الأكثر طلباً
-                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
                   </div>
                 )}
 
-                <div className={`p-10 ${pkg.popular ? "" : "pt-10"}`}>
+                <div
+                  className={`p-8 flex-1 flex flex-col ${pkg.popular ? "" : "pt-8"}`}
+                >
                   {/* Package Name */}
-                  <h3 className="text-3xl font-black text-white mb-3">
+                  <h3 className="text-2xl font-black text-white mb-2">
                     {pkg.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 mb-6 text-lg">
+                  <p className="text-gray-400 mb-6 text-sm">
                     {pkg.description}
                   </p>
 
                   {/* Price */}
-                  <div className="mb-8">
-                    <div className="flex items-baseline gap-2 mb-2">
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-1 mb-1">
                       <span
-                        className={`text-6xl font-black ${
+                        className={`text-4xl sm:text-5xl font-black ${
                           pkg.popular
                             ? "bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent"
                             : "text-white"
@@ -147,32 +140,27 @@ export default function Pricing() {
                         {pkg.price}
                       </span>
                     </div>
-                    <div className="text-gray-400 text-lg">{pkg.duration}</div>
+                    <div className="text-gray-500 text-sm font-medium">
+                      {pkg.duration}
+                    </div>
                   </div>
 
                   {/* Features */}
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-3 mb-8 flex-1">
                     {pkg.features.map((feature, i) => (
-                      <motion.li
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 + i * 0.05 }}
-                        className="flex items-start gap-3"
-                      >
+                      <li key={i} className="flex items-start gap-3">
                         <div
-                          className={`mt-1 w-6 h-6 rounded-full bg-gradient-to-br ${pkg.gradient} flex items-center justify-center flex-shrink-0`}
+                          className={`mt-0.5 w-5 h-5 rounded-full bg-gradient-to-br ${pkg.gradient} flex items-center justify-center flex-shrink-0`}
                         >
                           <Check
-                            className="w-4 h-4 text-white"
+                            className="w-3 h-3 text-white"
                             strokeWidth={3}
                           />
                         </div>
-                        <span className="text-gray-300 text-lg leading-relaxed">
+                        <span className="text-gray-300 text-base">
                           {feature}
                         </span>
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
 
@@ -180,45 +168,16 @@ export default function Pricing() {
                   <Button
                     variant={pkg.popular ? "primary" : "outline"}
                     size="lg"
-                    className="w-full text-xl py-6 shadow-lg"
+                    className="w-full text-base font-bold py-4 shadow-lg rounded-xl"
                   >
-                    <Camera className="w-6 h-6 ml-2" />
-                    احجز الآن
+                    <Camera className="w-5 h-5 ml-2" />
+                    احجز الباقة
                   </Button>
                 </div>
-
-                {/* Background Gradient */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${pkg.gradient} opacity-5 pointer-events-none`}
-                />
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Custom Package CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <div className="inline-block rounded-3xl bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-xl border border-yellow-500/20 shadow-2xl p-8">
-            <div className="flex items-center gap-4 flex-wrap justify-center">
-              <Sparkles className="w-8 h-8 text-yellow-500" />
-              <p className="text-xl text-gray-300">تحتاج باقة مخصصة؟</p>
-              <Button
-                variant="primary"
-                size="lg"
-                className="shadow-lg shadow-yellow-500/20"
-              >
-                <Camera className="w-6 h-6 ml-2" />
-                تواصل معنا
-              </Button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
