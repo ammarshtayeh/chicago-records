@@ -39,7 +39,7 @@ export default function Hero() {
       </div>
 
       {/* Floating Camera Animation - Main */}
-      <div className="absolute top-20 right-5 md:right-20 lg:right-40 opacity-80 pointer-events-none z-0 hidden sm:block">
+      <div className="absolute top-20 -right-20 sm:right-5 md:right-20 lg:right-40 opacity-40 sm:opacity-80 pointer-events-none z-0 block transform scale-75 sm:scale-100">
         <AnimatedCamera className="w-96 h-96" />
       </div>
 

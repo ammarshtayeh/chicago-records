@@ -125,10 +125,14 @@ export default function Navbar() {
         initial={false}
         animate={isOpen ? { x: 0 } : { x: "100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white/95 dark:bg-black/95 backdrop-blur-xl z-40 lg:hidden border-l border-gray-200 dark:border-white/10 shadow-2xl h-full flex flex-col"
+        className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white/95 dark:bg-black/95 backdrop-blur-2xl z-40 lg:hidden border-l border-gray-200 dark:border-white/10 shadow-2xl h-full flex flex-col"
       >
-        <div className="flex flex-col h-full p-6 pt-28">
-          <div className="flex-1 space-y-4">
+        {/* Mobile Menu Gradient Decorations */}
+        <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-yellow-500/5 to-transparent pointer-events-none" />
+
+        <div className="flex flex-col h-full p-6 pt-28 relative z-10">
+          <div className="flex-1 space-y-2">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
@@ -139,9 +143,12 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-xl font-bold text-slate-800 dark:text-gray-200 hover:text-yellow-500 transition-colors py-3 border-b border-gray-100 dark:border-white/5"
+                  className="block text-xl font-bold text-slate-800 dark:text-gray-200 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors py-4 border-b border-gray-100 dark:border-white/5 active:scale-95 transform duration-150"
                 >
-                  {link.name}
+                  <div className="flex items-center justify-between">
+                    {link.name}
+                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 opacity-0 group-hover:opacity-100" />
+                  </div>
                 </Link>
               </motion.div>
             ))}
@@ -150,7 +157,7 @@ export default function Navbar() {
             <Button
               size="lg"
               variant="primary"
-              className="w-full shadow-xl shadow-yellow-500/20 text-lg font-bold py-5 mt-6 rounded-xl"
+              className="w-full shadow-xl shadow-yellow-500/20 text-lg font-bold py-5 mt-6 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 border-none"
             >
               <Camera className="w-5 h-5 ml-2" />
               احجز الآن

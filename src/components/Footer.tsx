@@ -114,7 +114,7 @@ export default function Footer() {
         <div className="border-t border-slate-200 dark:border-white/5 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 dark:text-gray-500 text-sm text-center md:text-right">
-              © 2024 استوديو شيكاغو. جميع الحقوق محفوظة.
+              © 2026 استوديو شيكاغو. جميع الحقوق محفوظة.
             </p>
             <div className="flex gap-6">
               <Link
