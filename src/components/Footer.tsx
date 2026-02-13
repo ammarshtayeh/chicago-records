@@ -33,10 +33,10 @@ const contactInfo = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-slate-100 dark:bg-gradient-to-b dark:from-gray-900 dark:to-black border-t border-slate-200 dark:border-white/10">
+    <footer className="relative bg-slate-100 dark:bg-gradient-to-b dark:from-gray-900 dark:to-black border-t border-slate-200 dark:border-white/10 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-yellow-500/05 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/05 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-64 h-64 md:w-[400px] md:h-[400px] bg-yellow-500/05 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 md:w-[400px] md:h-[400px] bg-cyan-500/05 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">

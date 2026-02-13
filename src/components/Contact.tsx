@@ -60,8 +60,8 @@ export default function Contact() {
       className="py-24 sm:py-32 relative overflow-hidden bg-slate-50 dark:bg-black"
     >
       {/* Background Effects */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-yellow-500/05 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/05 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-1/4 w-64 h-64 md:w-[500px] md:h-[500px] bg-yellow-500/05 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 md:w-[500px] md:h-[500px] bg-cyan-500/05 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

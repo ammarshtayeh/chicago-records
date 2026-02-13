@@ -75,9 +75,9 @@ export default function Portfolio() {
   return (
     <section className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-black dark:via-gray-900 dark:to-black">
       {/* Background Effects */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-purple-500/05 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-0 right-1/4 w-64 h-64 md:w-[500px] md:h-[500px] bg-purple-500/05 rounded-full blur-3xl animate-pulse" />
       <div
-        className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-pink-500/05 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-0 left-1/4 w-64 h-64 md:w-[500px] md:h-[500px] bg-pink-500/05 rounded-full blur-3xl animate-pulse"
         style={{ animationDelay: "1.5s" }}
       />
 
